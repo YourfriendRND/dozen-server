@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: dozen_db
+    image: postgres:15
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+      PGDATA: /var/lib/postgresql/data
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - ${DB_PORT}:${DB_PORT} 
+    restart: always
+
+volumes:
+  postgres_data:
