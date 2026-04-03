@@ -7,7 +7,7 @@ import { AppService } from './app.service';
 import { UserModule } from './modules/users/user.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { PrismaModule } from './core/prisma/prisma.module';
-import { databaseConfig, userConfig } from './common/configs';
+import { databaseConfig, jwtConfig, userConfig } from './common/configs';
 
 @Module({
   imports: [
@@ -27,6 +27,7 @@ import { databaseConfig, userConfig } from './common/configs';
       load: [
         databaseConfig,
         userConfig,
+        jwtConfig,
       ]
     })
   ],
