@@ -35,5 +35,11 @@ export class UserRepository extends Repository<IUser> {
         
         return createdUser;
     };
+
+    async findById(id: string): Promise<IUser | null> {
+        return this.prismaService.user.findUnique({ where: {
+            id
+        }})
+    }
   
 }
